@@ -13,6 +13,7 @@ import (
 type Config struct {
 	URL      string
 	FileName string
+	LogLevel string
 	Parralel int64
 }
 
@@ -21,9 +22,10 @@ func main() {
 	flag.StringVarP(&config.URL, "url", "u", "", "download url")
 	flag.StringVarP(&config.FileName, "file-name", "n", "", "new file name")
 	flag.Int64VarP(&config.Parralel, "parralel", "p", 5, "download parralels")
+	flag.StringVarP(&config.LogLevel, "log-level", "l", "Debug", "log level<Debug,Info,Warn,Error,Panic,Fatal>")
 	flag.Parse()
 
-	logger := logger.NewZapLogger("Debug")
+	logger := logger.NewZapLogger(config.LogLevel)
 
 	if config.URL == "" {
 		logger.Errorf("no URL")

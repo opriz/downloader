@@ -1,13 +1,10 @@
 # golang downloader
-
 now support http/https fast download
 
 ## notice
-
 some sites may require for headers to download resources, not support now 
 
 ## install 
-
 ```
     git clone https://github.com/opriz/downloader.git   
     cd downloader    
